@@ -1,0 +1,10 @@
+﻿INSERT INTO Problem1 VALUES ('a',false,'er kunnen meer voertuigen met dezelfde capaciteit zijn.');
+INSERT INTO Problem1 VALUES ('b',true,'als je het voertuig weet, weet je de capaciteit (3).');
+INSERT INTO Problem1 VALUES ('c',false,'er kunnen meer pakjes op een factuur en een afleveradres zijn (b).');
+INSERT INTO Problem1 VALUES ('d',true,'een pakje wordt op hooguit een factuur vermeld (c), vervolgens is deze factuur bestemd voor ontvanger O op adres A (8).');
+INSERT INTO Problem1 VALUES ('e',true,'een pakje heeft een geldbedrag en de ontvanger is bekend (4,5)');
+INSERT INTO Problem1 VALUES ('f',true,'een bezorger is gekoppeld aan een voertuig (2)');
+INSERT INTO Problem1 VALUES ('g',false,'meerdere bezorgers kunnen in een voertuig met een bepaalde capaciteit rijden.');
+INSERT INTO Problem1 VALUES ('h',true, 'een voertuig heeft een aantal (niet alle) bezorgers die daarvoor gerechtigd zijn');
+INSERT INTO Problem1 VALUES ('i',true, 'V -> C is een FD, iedere FD is een MVD');
+INSERT INTO Problem1 VALUES ('j',true,'Als (V ->> B && V ->> C) == true, dan V ->> BC == true');
