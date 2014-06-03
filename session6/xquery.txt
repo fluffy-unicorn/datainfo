@@ -2,7 +2,7 @@
 //boatname
 
 --Opdracht 3
-//voyage//hired
+//voyage[.//hired]//boatname
 
 --Opdracht 4
 //voyage[.//boatname = "BATAVIA" ]//destination//harbour
@@ -26,4 +26,12 @@ returns the 4th sibling of the first child of the voyage with number 4144
 returns the 4th sibling of the first 'grandchild' (i.e. the first child of the first child who has at least one child) of the voyage with number 4144
 //voyage[number='4144']/descendant::*[4]
 returns the 4th descendant of the voyage with number 4144, no matter if it is a child of a grandchild or whatever.
+
+--Opdracht 10
+(for $v in //voyage[.//master="Jakob de Vries"] order by $v/leftpage/departure ascending return $v)[1]
+
+--Opdracht 11?
+
+--Opdracht 12?
+sum(//total//text()) 
 
