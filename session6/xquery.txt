@@ -79,9 +79,8 @@ for $next_elem in subsequence(//particulars//next,0,100)
   return replace node $next_elem with $new
 
 --Opdracht 18
-for $elem in (//onboard/*)
-let $child := $elem/*
-let $new := sum($child/text())
+for $elem in (//onboard/*/*) 
+let $new := sum($elem/text())
 return replace node $elem with $new
 
 --Opdracht 19
