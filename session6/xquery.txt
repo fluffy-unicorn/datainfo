@@ -1,0 +1,29 @@
+--Opdracht 2
+//boatname
+
+--Opdracht 3
+//voyage//hired
+
+--Opdracht 4
+//voyage[.//boatname = "BATAVIA" ]//destination//harbour
+
+--Opdracht 5
+//voyage[.//boatname = "BATAVIA" and .//harbour = "Batavia"]
+
+--Opdracht 6
+//voyage[.//master = "Willem IJsbrandsz. Bontekoe"]
+
+--Opdracht 7
+//voyage[contains(.//particulars,"Cape of Good Hope")]
+
+--Opdracht 8
+//voyage[not(.//boatname)][1]
+
+--Opdracht 9
+//voyage[number='4144']/*[4]
+returns the 4th sibling of the first child of the voyage with number 4144
+//voyage[number='4144']//*[4]
+returns the 4th sibling of the first 'grandchild' (i.e. the first child of the first child who has at least one child) of the voyage with number 4144
+//voyage[number='4144']/descendant::*[4]
+returns the 4th descendant of the voyage with number 4144, no matter if it is a child of a grandchild or whatever.
+
