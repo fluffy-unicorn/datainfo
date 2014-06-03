@@ -41,8 +41,8 @@ OR
 
 <total voyages="{count(//voyage)}" boats="{count(distinct-values(//boatname))}" masters="{count(distinct-values(//master))}" />
 
---Opdracht 12?
-sum(//total//text()) 
+--Opdracht 12
+sum(//soldiers//*)
 
 --Opdracht 13
 for $master in distinct-values(//master)
@@ -51,3 +51,43 @@ order by count($voyages) descending
 return <master name="{$master}" nrofvoyages="{count($voyages)}" />
 
 --Opdracht 14
+(for $master in distinct-values(//master)
+let $voyages := //voyage[.//master = $master]
+let $number_of_v := count($voyages)
+order by  $number_of_v  descending
+group by  $number_of_v
+return <master names="{$master}" voyages="{$number_of_v}" />)[1]
+
+--Opdracht 15
+(for $boat in distinct-values(//boatname)
+let $voyages := //voyage[.//boatname = $boat]
+let $number_of_v := count($voyages)
+order by  $number_of_v  descending
+group by  $number_of_v
+return <boat name="{$boat}" voyages="{$number_of_v}" />)[1]
+
+--Opdracht 16
+delete node //voyage[.//master = "Not used"]
+
+--Opdracht 17
+for $next_elem in subsequence(//particulars//next,0,100)
+    let $voyage := //voyage[.//next = $next_elem]
+    let $next := $next_elem
+    let $boat := $voyage//boatname
+    let $master :=  $voyage//master
+    let $new := <next nr="{$next}">{$boat}{$master}</next>
+  return replace node $next_elem with $new
+
+--Opdracht 18
+for $elem in (//onboard/*)
+let $child := $elem/*
+let $new := sum($child/text())
+return replace node $elem with $new
+
+--Opdracht 19
+
+
+--Opdracht 20
+
+
+--Opdracht 21
