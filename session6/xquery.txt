@@ -71,7 +71,7 @@ delete node //voyage[.//master = "Not used"]
 
 --Opdracht 17
 for $next_elem in subsequence(//particulars//next,0,100)
-    let $voyage := //voyage[.//next = $next_elem]
+    let $voyage := //voyage[.//number = $next_elem]
     let $next := $next_elem
     let $boat := $voyage//boatname
     let $master :=  $voyage//master
@@ -85,9 +85,18 @@ let $new := sum($child/text())
 return replace node $elem with $new
 
 --Opdracht 19
-
+for $part in //particulars
+where $part [text() contains text { "good hope" }]
+return $part
 
 --Opdracht 20
-
+for $part score $s in //voyage
+where $part contains text "cape" not in "cape of good hope"
+order by $s
+return $part
 
 --Opdracht 21
+for $arr score $s in //arrival
+where not($arr contains text "....-..-.." using wildcards)
+order by $s
+return $arr
