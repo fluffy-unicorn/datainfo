@@ -30,8 +30,24 @@ returns the 4th descendant of the voyage with number 4144, no matter if it is a 
 --Opdracht 10
 (for $v in //voyage[.//master="Jakob de Vries"] order by $v/leftpage/departure ascending return $v)[1]
 
---Opdracht 11?
+--Opdracht 11
+<total>
+<voyages>{count(//voyage)}</voyages>
+<boats>{count(distinct-values(//boatname))}</boats>
+<masters>{count(distinct-values(//master))}</masters>
+</total>
+
+OR
+
+<total voyages="{count(//voyage)}" boats="{count(distinct-values(//boatname))}" masters="{count(distinct-values(//master))}" />
 
 --Opdracht 12?
 sum(//total//text()) 
 
+--Opdracht 13
+for $master in distinct-values(//master)
+let $voyages := //voyage[.//master = $master]
+order by count($voyages) descending
+return <master name="{$master}" nrofvoyages="{count($voyages)}" />
+
+--Opdracht 14
